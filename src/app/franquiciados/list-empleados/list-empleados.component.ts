@@ -27,4 +27,8 @@ export class ListaEmpleadosComponent implements OnInit, OnDestroy{
     this.listaEmpleadosSub.unsubscribe();
   }
 
+  sendEmpleado(id: string){
+    this.franquiciadosService.getEmpleadosDetail(id);
+  }
+
 }

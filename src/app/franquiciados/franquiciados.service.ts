@@ -4,6 +4,7 @@ import { Franquicias } from './franquicias.model';
 import { Injectable } from '@angular/core';
 import { Empleados } from './empleados.model';
 import { Router } from "@angular/router";
+import { EmpleadosDetailCursos } from './empleadosCursoDetail.model';
 
 @Injectable({providedIn: 'root'})
 export class FranquiciadosService{
@@ -12,6 +13,9 @@ export class FranquiciadosService{
 
   private listaEmpleadosZona: Empleados[];
   private listaEmpleadosZonaUpdate = new Subject<Empleados[]>();
+
+  private empleadoDetail: EmpleadosDetailCursos;
+  private empleadoDetailUpdate = new Subject<EmpleadosDetailCursos>();
 
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -28,10 +32,9 @@ export class FranquiciadosService{
     return this.listaFranquiciadosUpdate.asObservable();
   }
 
-  getEmpleadosZona(zona: string){
-
+  getEmpleadosZona(zonas: string){
     const postData = {
-      zona: zona
+      zona: zonas
     }
     this.http
       .post<Empleados[]>(
@@ -43,10 +46,34 @@ export class FranquiciadosService{
         this.listaEmpleadosZona = post;
         this.listaEmpleadosZonaUpdate.next([...this.listaEmpleadosZona]);
       });
-      this.router.navigate(['/empleadosZona']);
+
+    this.router.navigate(['/empleadosZona']);
 }
 
 getEmpleadosZonaListUpdate(){
   return this.listaEmpleadosZonaUpdate.asObservable();
 }
+
+getEmpleadosDetail(ids: string){
+  const postData = {
+    codigo: ids
+  }
+  this.http
+    .post<EmpleadosDetailCursos>(
+      'http://localhost:5002/empleados',
+      postData
+    )
+    .subscribe(responseData => {
+      const post: EmpleadosDetailCursos = responseData;
+      this.empleadoDetail = post;
+      this.empleadoDetailUpdate.next(this.empleadoDetail);
+    });
+
+  this.router.navigate(['/empleadosDetail']);
+}
+
+getEmpleadosDetailUpdate(){
+  return this.empleadoDetailUpdate.asObservable();
+}
+
 }

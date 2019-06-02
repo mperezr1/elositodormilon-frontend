@@ -1,0 +1,35 @@
+<mat-card multi = true>
+<h2>
+  {{empleadoZona.nombre}}
+</h2>
+<h3>
+  {{empleadoZona.id}}
+</h3>
+<h3>
+  {{empleadoZona.cargo}}
+</h3>
+<h3>
+  {{empleadoZona.zona}}
+</h3>
+
+<h4>
+  Cursos empezados:
+</h4>
+<h5 multi = true *ngFor="let cursos of empleadoZona.cursos_empezados">
+* {{cursos}}
+</h5>
+
+<h4>
+  Cursos completados:
+</h4>
+<h5 multi = true *ngFor="let cursos of empleadoZona.cursos_completados">
+* {{cursos}}
+</h5>
+<h4>
+  Cursos pendientes:
+</h4>
+<h5 multi = true *ngFor="let cursos of empleadoZona.cursos_pendientes">
+* {{cursos}}
+</h5>
+
+</mat-card>

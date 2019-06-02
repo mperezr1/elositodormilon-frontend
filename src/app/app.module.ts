@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './franquiciados/list-franquiciados/list.component';
 import { ListaEmpleadosComponent } from './franquiciados/list-empleados/list-empleados.component';
+import { DescripcionEmpleadosComponent } from './franquiciados/descripcion-empleados/descEml.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ListaEmpleadosComponent } from './franquiciados/list-empleados/list-emp
     HeaderComponent,
     ListComponent,
     ListaEmpleadosComponent,
+    DescripcionEmpleadosComponent
   ],
   imports: [
     BrowserModule,
