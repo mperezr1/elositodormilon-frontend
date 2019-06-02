@@ -1,0 +1,20 @@
+<mat-card multi= true *ngFor="let empleados of listaEmpleadosZona">
+<h2>
+  {{empleados.nombre}}
+</h2>
+<h3>
+  {{empleados.id}}
+</h3>
+<h4>
+  {{empleados.cargo}}
+</h4>
+<h4>
+  Cursos empezados: {{empleados.empezados}}
+</h4>
+<h4>
+  Cursos completados: {{empleados.completados}}
+</h4>
+<h4>
+  Cursos pendientes: {{empleados.pendientes}}
+</h4>
+</mat-card>
