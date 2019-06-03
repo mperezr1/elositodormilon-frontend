@@ -31,8 +31,8 @@ export class ListComponent implements OnInit, OnDestroy{
 
   sendZone(zona: string){
     this.franquiciadosService.getEmpleadosZona(zona);
+    this.franquiciadosService.getInfoEncuestas(zona);
   }
-
 
 
 }

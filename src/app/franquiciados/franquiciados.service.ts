@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { Empleados } from './empleados.model';
 import { Router } from "@angular/router";
 import { EmpleadosDetailCursos } from './empleadosCursoDetail.model';
+import { InfoEncuestas } from './infoEncuestas.model';
 
 @Injectable({providedIn: 'root'})
 export class FranquiciadosService{
@@ -16,6 +17,9 @@ export class FranquiciadosService{
 
   private empleadoDetail: EmpleadosDetailCursos;
   private empleadoDetailUpdate = new Subject<EmpleadosDetailCursos>();
+
+  private infoEncuestas: InfoEncuestas;
+  private infoEncuestasUpdate = new Subject<InfoEncuestas>();
 
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -74,6 +78,26 @@ getEmpleadosDetail(ids: string){
 
 getEmpleadosDetailUpdate(){
   return this.empleadoDetailUpdate.asObservable();
+}
+
+getInfoEncuestas(zonas: string){
+  const postData = {
+    zona: zonas
+  }
+  this.http
+    .post<InfoEncuestas>(
+      'http://localhost:5002/encuestas_cliente',
+      postData
+    )
+    .subscribe(responseData => {
+      const post: InfoEncuestas = responseData;
+      this.infoEncuestas = post;
+      this.infoEncuestasUpdate.next(this.infoEncuestas);
+    });
+}
+
+getInfoEncuestasUpdate() {
+  return this.infoEncuestasUpdate.asObservable();
 }
 
 }

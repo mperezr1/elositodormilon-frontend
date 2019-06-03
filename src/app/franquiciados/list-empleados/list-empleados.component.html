@@ -1,4 +1,4 @@
-<h1>Empleados de la tienda</h1>
+<h2>Empleados de la tienda</h2>
 <mat-card multi= true *ngFor="let empleados of listaEmpleadosZona">
 <h4>
   {{empleados.nombre}}
@@ -22,4 +22,31 @@
 Get More Info
 </button>
 </mat-card>
-<h1>Informacion sobre encuestas</h1>
+<h2>Informacion sobre encuestas</h2>
+<mat-card>
+<h4>
+  Prom. pregunta 1: {{infoEncuestas.c0}}
+</h4>
+<h4>
+  Prom. pregunta 2: {{infoEncuestas.c1}}
+</h4>
+<h4>
+  Prom. pregunta 3: {{infoEncuestas.c2}}
+</h4>
+</mat-card>
+<h2>
+    Clientes que han participado en la encuesta:
+  </h2>
+<mat-card>
+<h4 *ngFor="let clientes of infoEncuestas.clientes">
+{{clientes}}
+</h4>
+</mat-card>
+<h2>
+    Observaciones hechas a la tienda:
+  </h2>
+<mat-card>
+<h4 *ngFor="let obs of infoEncuestas.observaciones">
+{{obs}}
+</h4>
+</mat-card>

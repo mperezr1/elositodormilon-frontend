@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy} from '@angular/core';
 import { FranquiciadosService } from '../franquiciados.service';
 import { Subscription } from 'rxjs';
 import { Empleados } from '../empleados.model';
+import { InfoEncuestas } from '../infoEncuestas.model';
 
 @Component({
   selector: 'app-list-empleados',
@@ -11,11 +12,18 @@ import { Empleados } from '../empleados.model';
 
 export class ListaEmpleadosComponent implements OnInit, OnDestroy{
   listaEmpleadosZona = [];
+  infoEncuestas: InfoEncuestas;
+
+  private infoEncuestasSub: Subscription;
   private listaEmpleadosSub: Subscription;
 
   constructor(public franquiciadosService: FranquiciadosService){}
 
   ngOnInit() {
+  this.infoEncuestasSub = this.franquiciadosService.getInfoEncuestasUpdate()
+  .subscribe((posts: InfoEncuestas) => {
+    this.infoEncuestas = posts;
+  });
 
   this.listaEmpleadosSub = this.franquiciadosService.getEmpleadosZonaListUpdate()
   .subscribe((posts: Empleados[]) => {
@@ -25,6 +33,7 @@ export class ListaEmpleadosComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(){
     this.listaEmpleadosSub.unsubscribe();
+    this.infoEncuestasSub.unsubscribe();
   }
 
   sendEmpleado(id: string){
