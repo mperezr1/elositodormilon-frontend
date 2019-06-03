@@ -3,9 +3,10 @@
   margin-top: 1rem;
 }
 
-mat-card {
- margin: auto;
- width: 90%;
+mat-card{
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 button{
