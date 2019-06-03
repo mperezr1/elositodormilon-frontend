@@ -1,5 +1,5 @@
 import { Component, OnInit, NgModule } from '@angular/core';
-import { Pregunta } from './pregunta.component';
+import { Pregunta } from '../pregunta.model';
 
 @Component({
   selector: 'app-encuesta-cliente',
@@ -9,7 +9,6 @@ import { Pregunta } from './pregunta.component';
 
 export class EncuestaClienteComponent implements OnInit {
   preguntas: Pregunta[];
-  constructor() { }
 
   ngOnInit() {
     this.preguntas = [{
@@ -30,6 +29,6 @@ export class EncuestaClienteComponent implements OnInit {
   }
 
   onSubmit(): void {
-    alert("submited!");
+
   }
 }

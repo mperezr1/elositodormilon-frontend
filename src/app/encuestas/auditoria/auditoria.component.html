@@ -1,0 +1,22 @@
+<form class="text-center" novalidate>
+  <div *ngFor="let seccion of secciones">
+    <h4>{{seccion.nombre}}</h4>
+    <div *ngFor="let pregunta of preguntas">
+      <h6>{{pregunta.seccion==seccion.id? pregunta.contenido : ''}}</h6>
+      <div class="d-flex justify-content-center" *ngIf="pregunta.seccion==seccion.id">
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item" *ngFor="let calificacion of pregunta.calificacion">
+            {{calificacion? 'Sí':'No'}}<br>
+            <input type="radio" id="radio{{pregunta.id}}.{{calificacion}}" name="myChoice{{pregunta.id}}">
+          </li>
+        </ul>
+      </div>
+      <br *ngIf="pregunta.seccion==seccion.id">
+    </div>
+  </div>
+  <div class="form-group text-left">
+    <h6>Observaciones:</h6>
+    <textarea class="form-control" rows="2" id="Observaciones"></textarea>
+  </div>
+  <button class="btn-primary" type="submit">¡Enviar!</button>
+</form>
