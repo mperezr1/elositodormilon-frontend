@@ -2,3 +2,28 @@ button{
   margin: auto;
   width: 100%;
 }
+
+h4{
+  margin: auto;
+  width: 100%;
+}
+
+h5{
+  width: 100%;
+  margin: auto;
+}
+
+h6{
+  float: left;
+  margin: auto;
+  width: 20%;
+}
+
+mat-card{
+  margin: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

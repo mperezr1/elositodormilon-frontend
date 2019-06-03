@@ -1,14 +1,14 @@
 <mat-card multi= true *ngFor="let paises of listaFranquiciados[0]">
-<h3>
+<h4>
   Pais: {{paises.pais}}
-</h3>
-<h4 multi = true *ngFor="let franquicias of paises.franquicias">
+</h4>
+<h5 multi = true *ngFor="let franquicias of paises.franquicias">
   Franquicia:  {{franquicias.nombre}}
-  <h3>
+  <h5>
     Zonas:
-  </h3>
+  </h5>
   <button mat-raised-button  multi = true *ngFor="let zonas of franquicias.zonas" (click)="sendZone(zonas)">
     {{zonas}}
   </button>
-</h4>
+</h5>
 </mat-card>

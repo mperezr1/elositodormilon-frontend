@@ -5,9 +5,11 @@ import { ListaEmpleadosComponent } from './franquiciados/list-empleados/list-emp
 import { DescripcionEmpleadosComponent } from './franquiciados/descripcion-empleados/descEml.component';
 import { EncuestaClienteComponent } from './encuestas/encuesta-cliente/encuesta-cliente.component';
 import { AuditoriaComponent } from './encuestas/auditoria/auditoria.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path: '', component: ListComponent},
+  {path: '', component: HomeComponent},
+  {path: 'franquicias', component: ListComponent},
   {path: 'empleadosZona', component: ListaEmpleadosComponent},
   {path: 'empleadosDetail', component: DescripcionEmpleadosComponent},
   {path: 'encuesta', component: EncuestaClienteComponent},

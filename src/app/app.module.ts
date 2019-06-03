@@ -6,7 +6,8 @@ import { MatInputModule ,
          MatButtonModule,
          MatExpansionModule,
          MatOptionModule,
-         MatSelectModule } from '@angular/material';
+         MatSelectModule,
+         MatIconModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { ListaEmpleadosComponent } from './franquiciados/list-empleados/list-emp
 import { DescripcionEmpleadosComponent } from './franquiciados/descripcion-empleados/descEml.component';
 import { EncuestaClienteComponent } from './encuestas/encuesta-cliente/encuesta-cliente.component';
 import { AuditoriaComponent } from './encuestas/auditoria/auditoria.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { AuditoriaComponent } from './encuestas/auditoria/auditoria.component';
     ListaEmpleadosComponent,
     DescripcionEmpleadosComponent,
     EncuestaClienteComponent,
-    AuditoriaComponent
+    AuditoriaComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { AuditoriaComponent } from './encuestas/auditoria/auditoria.component';
     MatExpansionModule,
     MatOptionModule,
     MatSelectModule,
+    MatIconModule,
     HttpClientModule
   ],
   providers: [],
