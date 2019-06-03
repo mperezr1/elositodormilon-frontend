@@ -1,22 +1,22 @@
 <mat-card multi= true *ngFor="let empleados of listaEmpleadosZona">
-<h2>
+<h4>
   {{empleados.nombre}}
-</h2>
-<h3>
+</h4>
+<h5>
   {{empleados.id}}
-</h3>
-<h4>
+</h5>
+<h5>
   {{empleados.cargo}}
-</h4>
-<h4>
+</h5>
+<h5>
   Cursos empezados: {{empleados.empezados}}
-</h4>
-<h4>
+</h5>
+<h5>
   Cursos completados: {{empleados.completados}}
-</h4>
-<h4>
+</h5>
+<h5>
   Cursos pendientes: {{empleados.pendientes}}
-</h4>
+</h5>
 <button mat-raised-button color="primary" (click)="sendEmpleado(empleados.id)">
 Get More Info
 </button>
