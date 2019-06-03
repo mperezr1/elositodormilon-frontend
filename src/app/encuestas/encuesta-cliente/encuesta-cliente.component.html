@@ -1,0 +1,20 @@
+<form class="text-center" novalidate>
+  <h6>Teniendo en cuenta que 5 es muy satisfecho y 1 es para nada satisfecho:</h6><br>
+  <div *ngFor="let pregunta of preguntas">
+    <h6>{{pregunta.contenido}}</h6>
+    <div class="d-flex justify-content-center">
+      <ul class="list-group list-group-horizontal">
+        <li class="list-group-item" *ngFor="let calificacion of pregunta.calificacion">
+          {{calificacion}}<br>
+          <input type="radio" id="radio{{pregunta.id}}.{{calificacion}}" name="myChoice{{pregunta.id}}">
+        </li>
+      </ul>
+    </div>
+    <br>
+  </div>
+  <div class="form-group text-left">
+    <h6>Observaciones:</h6>
+    <textarea class="form-control" rows="2" id="Observaciones"></textarea>
+  </div>
+  <button class="btn-primary" type="submit">¡Enviar!</button>
+</form>

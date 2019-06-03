@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './franquiciados/list-franquiciados/list.component';
 import { ListaEmpleadosComponent } from './franquiciados/list-empleados/list-empleados.component';
 import { DescripcionEmpleadosComponent } from './franquiciados/descripcion-empleados/descEml.component';
+import { EncuestaClienteComponent } from './encuestas/encuesta-cliente/encuesta-cliente.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DescripcionEmpleadosComponent } from './franquiciados/descripcion-emple
     HeaderComponent,
     ListComponent,
     ListaEmpleadosComponent,
-    DescripcionEmpleadosComponent
+    DescripcionEmpleadosComponent,
+    EncuestaClienteComponent
   ],
   imports: [
     BrowserModule,
