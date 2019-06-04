@@ -7,6 +7,7 @@ import { EncuestaClienteComponent } from './encuestas/encuesta-cliente/encuesta-
 import { AuditoriaComponent } from './encuestas/auditoria/auditoria.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
+import { RecompesaComponent } from './encuestas/recompesa//recompesa.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'empleadosDetail', component: DescripcionEmpleadosComponent},
   {path: 'encuesta', component: EncuestaClienteComponent},
   {path: 'auditoria', component: AuditoriaComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'recompensa', component: RecompesaComponent}
 ];
 
 @NgModule({

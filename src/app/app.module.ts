@@ -22,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { LoginComponent } from './auth/login/login.component';
+import { RecompesaComponent } from './encuestas/recompesa/recompesa.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LoginComponent } from './auth/login/login.component';
     EncuestaClienteComponent,
     AuditoriaComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RecompesaComponent
   ],
   imports: [
     BrowserModule,
