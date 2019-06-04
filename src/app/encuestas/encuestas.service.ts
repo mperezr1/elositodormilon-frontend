@@ -17,7 +17,7 @@ export class EncuestasService{
     }
     this.http
       .post<EncuestaSend>(
-        'http://localhost:5002/encuestas_cliente',
+        'http://localhost:5002/save_encuesta',
         postData
       )
       .subscribe(responseData => {
