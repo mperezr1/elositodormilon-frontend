@@ -59,7 +59,7 @@ const authData = {
   email: emailIn,
   password: passwordIn
 }
-this.http.post<{token: string, priorty: number, nombre:string}>('http://localhost:5002/login',authData).subscribe(res => {
+this.http.post<{token: string, priorty: number, nombre:string}>('http://localhost:5002/users/login',authData).subscribe(res => {
   const tokenIn = res.token;
   this.actualPriority = res.priorty;
   this.nombre = res.nombre;
