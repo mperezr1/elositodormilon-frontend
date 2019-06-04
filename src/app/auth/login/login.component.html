@@ -6,10 +6,10 @@
     </mat-form-field>
     <mat-form-field>
       <input type="password" name="password" ngModel matInput placeholder="Contraseña" #passwordInput="ngModel" required>
-      <mat-error *ngIf="passwordInput.invalid">Ingrese una contraseña.</mat-error>
+      <mat-error *ngIf="passwordInput.invalid">Ingrese una contraseña válida.</mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit"> Acceder. </button>
+    <button mat-raised-button color="primary" type="submit"> Acceder </button>
 
   </form>
 </mat-card>

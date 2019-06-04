@@ -1,4 +1,4 @@
-<h2>Empleados de la tienda</h2>
+<h2>Informe de Capacitación de los Empleados</h2>
 <mat-card multi= true *ngFor="let empleados of listaEmpleadosZona">
 <h4>
   {{empleados.nombre}}
@@ -9,44 +9,42 @@
 <h5>
   {{empleados.cargo}}
 </h5>
-<h6>
-  Cursos empezados: {{empleados.empezados}}
+<h6>  <img src="https://image.flaticon.com/icons/svg/1152/1152837.svg" style="height:30px;width:30px">
+  {{empleados.empezados}}
 </h6>
-<h6>
-  Cursos completados: {{empleados.completados}}
+<h6> <img src="https://img.icons8.com/color/420/task-completed.png" style="height:30px;width:30px">
+  {{empleados.completados}}
 </h6>
-<h6>
-  Cursos pendientes: {{empleados.pendientes}}
+<h6>  <img src="https://sitejerk.com/images/sand-clock-png-15.png" style="height:30px;width:30px">
+  {{empleados.pendientes}}
 </h6>
 <button mat-raised-button color="primary" (click)="sendEmpleado(empleados.id)">
-Get More Info
+More Info
 </button>
 </mat-card>
-<h2>Informacion sobre encuestas</h2>
+<h2>Nivel de satisfacción de los Clientes</h2>
 <mat-card>
-<h4>
-  Prom. pregunta 1: {{infoEncuestas.c0}}
-</h4>
-<h4>
-  Prom. pregunta 2: {{infoEncuestas.c1}}
-</h4>
-<h4>
-  Prom. pregunta 3: {{infoEncuestas.c2}}
-</h4>
+<h6>
+  Tiempo de espera para ser atendido: <strong style="color:green">{{infoEncuestas.c0 | number : '.2-2'}}</strong>
+</h6>
+<h6>
+  Tiempo de calidad en la Atención: <strong style="color:green">{{infoEncuestas.c1 | number : '.2-2'}}</strong>
+</h6>
+<h6>
+  Actitud del personal: <strong style="color:green">{{infoEncuestas.c2 | number : '.2-2'}}</strong>
+</h6>
 </mat-card>
-<h2>
-    Clientes que han participado en la encuesta:
-  </h2>
+<h3> Clientes que han participado en la encuesta: </h3>
 <mat-card>
-<h4 *ngFor="let clientes of infoEncuestas.clientes">
+<h6 *ngFor="let clientes of infoEncuestas.clientes">
 {{clientes}}
-</h4>
+</h6>
 </mat-card>
-<h2>
+<h4>
     Observaciones hechas a la tienda:
-  </h2>
-<mat-card>
-<h4 *ngFor="let obs of infoEncuestas.observaciones">
-{{obs}}
 </h4>
+<mat-card>
+<h6 *ngFor="let obs of infoEncuestas.observaciones">
+ {{obs}}
+</h6>
 </mat-card>

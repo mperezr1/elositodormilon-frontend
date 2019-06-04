@@ -1,1 +1,8 @@
-<h1>Bienvenido al gestor de franquiciados osito dormilon</h1>
+<h1 style="text-align:center">Bienvenido al Gestor de Franquiciados de Plenia Locatel</h1>
+
+<div *ngIf="!userIsAuthenticated" style="text-align:center">
+    <img src="https://www.assi.es/wp-content/uploads/2018/01/satisfaccion-cliente-2.jpg" style="align:center"><br>
+  Llene una corta encuesta de satisfacción y reciba descuentos y beneficios
+  <a style="color:#145A32" routerLink='/encuesta' routerLinkActive="active">  [Click Aquí]
+    <mat-icon aria-label="encuestaButton">assignment</mat-icon></a>
+</div>
