@@ -19,6 +19,7 @@ import { DescripcionEmpleadosComponent } from './franquiciados/descripcion-emple
 import { EncuestaClienteComponent } from './encuestas/encuesta-cliente/encuesta-cliente.component';
 import { AuditoriaComponent } from './encuestas/auditoria/auditoria.component';
 import { HomeComponent } from './home/home.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { HomeComponent } from './home/home.component';
     MatOptionModule,
     MatSelectModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

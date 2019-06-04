@@ -1,5 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { Pregunta } from '../pregunta.model';
+import {NgForm, NgModel} from '@angular/forms';
+import { EncuestasService } from '../encuestas.service';
 
 @Component({
   selector: 'app-encuesta-cliente',
@@ -9,6 +11,8 @@ import { Pregunta } from '../pregunta.model';
 
 export class EncuestaClienteComponent implements OnInit {
   preguntas: Pregunta[];
+
+  constructor(public encuestasService: EncuestasService) {}
 
   ngOnInit() {
     this.preguntas = [{
@@ -27,8 +31,9 @@ export class EncuestaClienteComponent implements OnInit {
       calificacion : [1, 2, 3, 4, 5]
     }];
   }
-
-  onSubmit(): void {
-
+  onSubmit(form: NgForm) {
+    console.log(form.value.string);
+    //Para enviar usa el metodo encuestasService.saveEncuesta(encuestaSend: EncuestaSend) donde deber recordar crear un objeto con el modelo EncuestaSend y a cada campo
+    //Se le añade los valores necesarios, cliente, zona, calificaciones, observaciones
   }
 }
