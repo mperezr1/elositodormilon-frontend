@@ -66,7 +66,7 @@ this.http.post<{token: string, rol: string}>('http://localhost:5002/users/login'
   if(tokenIn){
   this.authStatus.next(true);
   this.userName = authData.email;
-  this.router.navigate(['/home']);
+  this.router.navigate(['/']);
   }
   console.log(this.actualRol);
 });
