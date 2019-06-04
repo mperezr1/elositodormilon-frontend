@@ -15,7 +15,7 @@ export class ListaEmpleadosComponent implements OnInit, OnDestroy{
   listaEmpleadosZona = [];
   infoEncuestas: InfoEncuestas;
   infoAuditoria: string[];
-  fechaAuditorias: string[];
+  fechasAuditorias: string[];
 
   private fechasAuditoriasSub: Subscription;
   private infoEncuestasSub: Subscription;
