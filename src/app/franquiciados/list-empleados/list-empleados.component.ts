@@ -3,6 +3,7 @@ import { FranquiciadosService } from '../franquiciados.service';
 import { Subscription } from 'rxjs';
 import { Empleados } from '../empleados.model';
 import { InfoEncuestas } from '../infoEncuestas.model';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-list-empleados',
@@ -17,8 +18,33 @@ export class ListaEmpleadosComponent implements OnInit, OnDestroy{
   private infoEncuestasSub: Subscription;
   private listaEmpleadosSub: Subscription;
 
-  constructor(public franquiciadosService: FranquiciadosService){}
+  constructor(public franquiciadosService: FranquiciadosService, private authService: AuthService){}
+  private authListenerSub: Subscription;
+  userIsAuthenticated = false;
 
+isGerente() {
+  if(this.authService.actualRol === 'Gerente'){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+isAdmin() {
+  if(this.authService.actualRol === 'Admin'){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+isAuditor() {
+  if(this.authService.actualRol === 'Auditor'){
+    return true;
+  } else {
+    return false;
+  }
+}
   ngOnInit() {
   this.infoEncuestasSub = this.franquiciadosService.getInfoEncuestasUpdate()
   .subscribe((posts: InfoEncuestas) => {
@@ -29,11 +55,16 @@ export class ListaEmpleadosComponent implements OnInit, OnDestroy{
   .subscribe((posts: Empleados[]) => {
     this.listaEmpleadosZona = posts;
   });
+
+  this.authListenerSub =  this.authService.getAuthStatus().subscribe(isAuth => {
+    this.userIsAuthenticated = true;
+});
   }
 
   ngOnDestroy(){
     this.listaEmpleadosSub.unsubscribe();
     this.infoEncuestasSub.unsubscribe();
+    this.authListenerSub.unsubscribe();
   }
 
   sendEmpleado(id: string){
