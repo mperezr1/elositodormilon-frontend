@@ -63,6 +63,7 @@ isAuditor() {
   sendZone(zona: string){
     this.franquiciadosService.getEmpleadosZona(zona);
     this.franquiciadosService.getInfoEncuestas(zona);
+    this.franquiciadosService.getFechaAuditoria(zona);
   }
 
 

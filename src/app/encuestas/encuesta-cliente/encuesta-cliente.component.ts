@@ -46,5 +46,6 @@ export class EncuestaClienteComponent implements OnInit {
       calificaciones: [form.value.myChoice1, form.value.myChoice2, form.value.myChoice3],
       observaciones: form.value.obse
     });
+    this.encuestasService.getInfoRecompensa(form.value.zona);
   }
 }

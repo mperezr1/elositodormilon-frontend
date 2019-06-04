@@ -15,7 +15,9 @@ export class ListaEmpleadosComponent implements OnInit, OnDestroy{
   listaEmpleadosZona = [];
   infoEncuestas: InfoEncuestas;
   infoAuditoria: string[];
+  fechaAuditorias: string[];
 
+  private fechasAuditoriasSub: Subscription;
   private infoEncuestasSub: Subscription;
   private listaEmpleadosSub: Subscription;
 
@@ -51,7 +53,14 @@ isAuditor() {
   .subscribe((posts: InfoEncuestas) => {
     this.infoEncuestas = posts;
   }
+  
   );
+
+  this.fechasAuditoriasSub = this.franquiciadosService.getFechaAuditoriaUpdate()
+  .subscribe((posts: string[]) => {
+    this.fechasAuditorias = posts;
+    console.log(this.fechasAuditorias);
+  });
 
   this.listaEmpleadosSub = this.franquiciadosService.getEmpleadosZonaListUpdate()
   .subscribe((posts: Empleados[]) => {
@@ -67,6 +76,7 @@ isAuditor() {
     this.listaEmpleadosSub.unsubscribe();
     this.infoEncuestasSub.unsubscribe();
     this.authListenerSub.unsubscribe();
+    this.fechasAuditoriasSub.unsubscribe();
   }
 
   sendEmpleado(id: string){

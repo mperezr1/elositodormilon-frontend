@@ -24,6 +24,9 @@ export class FranquiciadosService{
   private infoAuditorias: string[];
   private infoAuditoriasUpdate = new Subject<string[]>();
 
+  private fechaAuditorias: string[];
+  private fechaAuditoriasUpdate = new Subject<string[]>()
+
   constructor(private http: HttpClient, private router: Router) {}
 
   getFranquiciados(){
@@ -33,6 +36,26 @@ export class FranquiciadosService{
     this.listaFranquiciadosUpdate.next(this.listaFranquiciados);
     });
   }
+
+  getFechaAuditoria(zonas: string){
+    const postData = {
+      zona: zonas
+    }
+    this.http
+      .post<string[]>(
+        'http://localhost:5002/auditorias',
+        postData
+      )
+      .subscribe(responseData => {
+        const post: string[] = responseData;
+        this.fechaAuditorias = post;
+        this.fechaAuditoriasUpdate.next(this.fechaAuditorias);
+      });
+}
+
+getFechaAuditoriaUpdate(){
+  return this.fechaAuditoriasUpdate.asObservable();
+}
 
   getFranquiciadosUpdate(){
     return this.listaFranquiciadosUpdate.asObservable();
