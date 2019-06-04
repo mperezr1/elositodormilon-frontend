@@ -1,4 +1,4 @@
-<form class="text-center" novalidate>
+<form class="text-center" #postForm="ngForm" (submit)="onSubmit(postForm)">
   <div *ngFor="let seccion of secciones">
     <h4>{{seccion.nombre}}</h4>
     <div *ngFor="let pregunta of preguntas">
@@ -7,7 +7,7 @@
         <ul class="list-group list-group-horizontal">
           <li class="list-group-item" *ngFor="let calificacion of pregunta.calificacion">
             {{calificacion? 'Sí':'No'}}<br>
-            <input type="radio" id="radio{{pregunta.id}}.{{calificacion}}" name="myChoice{{pregunta.id}}">
+            <input type="radio" value="{{calificacion}}" id="radio{{pregunta.id}}.{{calificacion}}" name="myChoice{{pregunta.id}}" ngModel>
           </li>
         </ul>
       </div>
@@ -16,7 +16,7 @@
   </div>
   <div class="form-group text-left">
     <h6>Observaciones:</h6>
-    <textarea class="form-control" rows="2" id="Observaciones"></textarea>
+    <textarea class="form-control" rows="2" id="obse" name="obse" ngModel></textarea>
   </div>
   <button class="btn-primary" type="submit">¡Enviar!</button>
 </form>

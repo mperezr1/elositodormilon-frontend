@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Pregunta } from '../pregunta.model';
 import { Seccion } from '../seccion.component';
+import { NgForm, NgModel} from '@angular/forms';
+import { AuditoriaService } from '../auditoria.service';
+
 @Component({
   selector: 'app-auditoria',
   templateUrl: './auditoria.component.html',
@@ -10,6 +13,7 @@ export class AuditoriaComponent implements OnInit {
   preguntas: Pregunta[];
   secciones: Seccion[];
 
+  constructor(public auditoriaService: AuditoriaService){}
   ngOnInit() {
     this.preguntas = [{
       id: 1,
@@ -135,4 +139,31 @@ export class AuditoriaComponent implements OnInit {
     ];
   }
 
+  onSubmit(form: NgForm) {
+    this.auditoriaService.saveAuditoria({
+      evaluacion: [
+        form.value.myChoice1,
+        form.value.myChoice2,
+        form.value.myChoice3,
+        form.value.myChoice4,
+        form.value.myChoice5,
+        form.value.myChoice6,
+        form.value.myChoice7,
+        form.value.myChoice8,
+        form.value.myChoice9,
+        form.value.myChoice10,
+        form.value.myChoice11,
+        form.value.myChoice12,
+        form.value.myChoice13,
+        form.value.myChoice14,
+        form.value.myChoice15,
+        form.value.myChoice16,
+        form.value.myChoice17,
+        form.value.myChoice18,
+        form.value.myChoice19,
+        form.value.myChoice20
+      ],
+      anotaciones: form.value.obse
+    });
+  }
 }

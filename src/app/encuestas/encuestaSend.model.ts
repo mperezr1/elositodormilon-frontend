@@ -1,6 +1,6 @@
 export interface EncuestaSend {
 cliente: string;
 zona: string;
-calificaciones: [number];
+calificaciones: number[];
 observaciones: string;
 }

@@ -14,7 +14,8 @@ export class EncuestasService{
       zona: encuestaSend.zona,
       calificaciones: encuestaSend.calificaciones,
       observaciones: encuestaSend.observaciones
-    }
+    };
+    console.log(postData);
     this.http
       .post<EncuestaSend>(
         'http://localhost:5002/save_encuesta',

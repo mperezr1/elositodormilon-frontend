@@ -32,8 +32,11 @@ export class EncuestaClienteComponent implements OnInit {
     }];
   }
   onSubmit(form: NgForm) {
-    console.log(form.value.string);
-    //Para enviar usa el metodo encuestasService.saveEncuesta(encuestaSend: EncuestaSend) donde deber recordar crear un objeto con el modelo EncuestaSend y a cada campo
-    //Se le añade los valores necesarios, cliente, zona, calificaciones, observaciones
+    this.encuestasService.saveEncuesta({
+      cliente: form.value.nombre,
+      zona: 'UnaZonaDeMomento',
+      calificaciones: [form.value.myChoice1, form.value.myChoice2, form.value.myChoice3],
+      observaciones: form.value.obse
+    });
   }
 }
