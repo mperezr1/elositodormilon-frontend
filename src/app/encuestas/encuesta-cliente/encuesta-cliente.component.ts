@@ -11,6 +11,7 @@ import { EncuestasService } from '../encuestas.service';
 
 export class EncuestaClienteComponent implements OnInit {
   preguntas: Pregunta[];
+  zonas: string[];
 
   constructor(public encuestasService: EncuestasService) {}
 
@@ -30,11 +31,18 @@ export class EncuestaClienteComponent implements OnInit {
       contenido: '3. ¿Cómo se sintió respecto a la actitud del personal?',
       calificacion : [1, 2, 3, 4, 5]
     }];
+
+    this.zonas = [
+      "Miami Beach",
+      "Hallandale",
+      "Premium Place",
+      "Chambacu",
+      ];
   }
   onSubmit(form: NgForm) {
     this.encuestasService.saveEncuesta({
       cliente: form.value.nombre,
-      zona: 'UnaZonaDeMomento',
+      zona: form.value.zona,
       calificaciones: [form.value.myChoice1, form.value.myChoice2, form.value.myChoice3],
       observaciones: form.value.obse
     });

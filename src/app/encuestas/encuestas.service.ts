@@ -22,7 +22,7 @@ export class EncuestasService{
         postData
       )
       .subscribe(responseData => {
-        console.log('Se lograron enviar los archivos a la db');
+        console.log(responseData);
       });
     }
 

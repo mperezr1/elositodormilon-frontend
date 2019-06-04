@@ -14,6 +14,7 @@ import { AuthService } from '../../auth/auth.service';
 export class ListaEmpleadosComponent implements OnInit, OnDestroy{
   listaEmpleadosZona = [];
   infoEncuestas: InfoEncuestas;
+  infoAuditoria: string[];
 
   private infoEncuestasSub: Subscription;
   private listaEmpleadosSub: Subscription;
@@ -49,7 +50,8 @@ isAuditor() {
   this.infoEncuestasSub = this.franquiciadosService.getInfoEncuestasUpdate()
   .subscribe((posts: InfoEncuestas) => {
     this.infoEncuestas = posts;
-  });
+  }
+  );
 
   this.listaEmpleadosSub = this.franquiciadosService.getEmpleadosZonaListUpdate()
   .subscribe((posts: Empleados[]) => {
@@ -58,7 +60,7 @@ isAuditor() {
 
   this.authListenerSub =  this.authService.getAuthStatus().subscribe(isAuth => {
     this.userIsAuthenticated = true;
-});
+  });
   }
 
   ngOnDestroy(){

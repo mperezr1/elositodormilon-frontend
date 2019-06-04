@@ -21,6 +21,8 @@ export class FranquiciadosService{
   private infoEncuestas: InfoEncuestas;
   private infoEncuestasUpdate = new Subject<InfoEncuestas>();
 
+  private infoAuditorias: string[];
+  private infoAuditoriasUpdate = new Subject<string[]>();
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -93,6 +95,22 @@ getInfoEncuestas(zonas: string){
       const post: InfoEncuestas = responseData;
       this.infoEncuestas = post;
       this.infoEncuestasUpdate.next(this.infoEncuestas);
+    });
+}
+
+getInfoAuditoria(zona: string){
+  const postData = {
+    zona: zona
+  };
+  this.http
+    .post<string[]>(
+      'http://localhost:5002/auditorias',
+      postData
+    )
+    .subscribe(responseData => {
+      const post: string[] = responseData;
+      this.infoAuditorias = post;
+      this.infoAuditoriasUpdate.next(this.infoAuditorias);
     });
 }
 
