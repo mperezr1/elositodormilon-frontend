@@ -1,19 +1,30 @@
 <mat-toolbar
 color = "primary">
-<span>
+<span *ngIf="userIsAuthenticated">
   <a color="white" routerLink='/' routerLinkActive="active">
       <mat-icon aria-label="homeButton">home</mat-icon>
   </a>
 </span>
-<span>
+<span *ngIf="userIsAuthenticated">
   <a color="white" routerLink='/franquicias' routerLinkActive="active">
       <mat-icon aria-label="franquiciadosButton">assessment</mat-icon>
   </a>
 </span>
-<span>
+<span *ngIf="userIsAuthenticated">
   <a color="white" routerLink='/encuesta' routerLinkActive="active">
       <mat-icon aria-label="encuestaButton">assignment</mat-icon>
   </a>
 </span>
 
+<div *ngIf="!userIsAuthenticated">
+  <a mat-button routerLink="/login" routerLinkActive="mat-accent">Acceder</a>
+</div>
+
+<!-- <div *ngIf="!userIsAuthenticated">
+  <a mat-button routerLink="/auth/signup" routerLinkActive="mat-accent">Registrarse</a>
+</div> -->
+
+<div *ngIf="userIsAuthenticated">
+  <a mat-button (click)="onLogout()">Salir</a>
+</div>
 </mat-toolbar>

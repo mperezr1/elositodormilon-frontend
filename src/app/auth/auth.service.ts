@@ -10,7 +10,7 @@ export class AuthService {
 
 private token: string;
 public nombre: string;
-public actualPriority: number;
+public actualRol: string;
 private userName: string;
 private authStatus = new Subject<boolean>();
 
@@ -23,7 +23,7 @@ getAuthStatus(){
 }
 
 getPriority(){
-  return this.actualPriority;
+  return this.actualRol;
 }
 
 getUserName(){
@@ -59,17 +59,16 @@ const authData = {
   email: emailIn,
   password: passwordIn
 }
-this.http.post<{token: string, priorty: number, nombre:string}>('http://localhost:5002/users/login',authData).subscribe(res => {
+this.http.post<{token: string, rol: string}>('http://localhost:5002/users/login',authData).subscribe(res => {
   const tokenIn = res.token;
-  this.actualPriority = res.priorty;
-  this.nombre = res.nombre;
+  this.actualRol = res.rol;
   this.token = tokenIn;
   if(tokenIn){
   this.authStatus.next(true);
   this.userName = authData.email;
   this.router.navigate(['/home']);
   }
-  console.log(this.actualPriority);
+  console.log(this.actualRol);
 });
 }
 

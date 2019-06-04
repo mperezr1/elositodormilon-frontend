@@ -21,6 +21,7 @@ import { AuditoriaComponent } from './encuestas/auditoria/auditoria.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth/auth-interceptor';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     DescripcionEmpleadosComponent,
     EncuestaClienteComponent,
     AuditoriaComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
